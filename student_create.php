@@ -1,11 +1,24 @@
 <?php include "core/initialize.php"; ?>
 <?php 
 
-	$user = new User();
+		$username = $_POST['username'];
+		$password = $_POST['password'];
 
-	$user->username = "test";
-	$user->password = "tset2adf";
-	$user->create();
+		$user = new User();
+		$user->username = $username;
+		$user->password = $password;
+
+		$user->create();
+
+
+	 	 header('Location: http://localhost/ITE601');
+  		exit;
+
+
+
+
+		
+
 
 
 
