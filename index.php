@@ -1,3 +1,4 @@
+<?php include "core/initialize.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,27 +35,35 @@
 
 			<table class="table">
   <thead>
+   
+
+
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Patient Name</th>
-      <th scope="col">Address</th>
-       <th scope="col">Contact INfo</th>
-       <th scope="col">Date and Time</th>
+    
+      <th scope="col">Username</th>
+      <th scope="col">Password</th>
+      
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
+    <?php foreach(User::find_all() as $user ) { ?>
+    
+
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>BSIT</td>
-       <td>BSIT</td>
+      <th scope="row"><?php echo $user->username; ?></th>
+      <td><?php echo $user->password; ?></td>
+      
+      
       <td>
       	<button class="btn btn-sm btn-info">Edit</button>
       	<button class="btn btn-sm btn-danger">Delete</button>
       </td>
     </tr>
+
+
+
+  <?php } ?>
     
   </tbody>
 </table>

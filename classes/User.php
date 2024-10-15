@@ -1,7 +1,7 @@
 <?php
 
-
 class User extends DBObject  {
+
     public $id;
     public $username;
     public $password;
