@@ -60,7 +60,7 @@ public static function find_all() {
 public static function find_by_id($id){
   global $database;
   $sql = "SELECT * FROM " . static::$table;
-  $sql .= " WHERE Id = '$id' ";
+  $sql .= " WHERE id = '$id' ";
   $result = static::find_this_query($sql);
   return !empty($result) ? array_shift($result) : FALSE;
 }

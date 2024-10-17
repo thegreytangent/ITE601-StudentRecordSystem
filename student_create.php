@@ -12,7 +12,7 @@
 
 
 	 	 header('Location: http://localhost/ITE601');
-  		exit;
+  	 exit;
 
 
 
