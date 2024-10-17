@@ -24,7 +24,7 @@
 			<div class="col-2"></div>
 			<div class="col-4">
 				<h2>Update User Credentials</h2>
-				<form method="POST" action="student_create.php">
+				<form method="POST" action="student_update.php?id=<?php echo $user->id; ?>">
 					
 					<div class="mb-3">
 						<label class="form-label">Username:</label>
