@@ -5,6 +5,7 @@ class User extends DBObject  {
     public $id;
     public $username;
     public $password;
+    
 
     
     protected static $table = "users";

@@ -1,4 +1,6 @@
 <?php include "core/initialize.php"; ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-</head>
 
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,7 +22,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Student List</a>
+          <a class="nav-link active" aria-current="page" href="index.php">User List</a>
+         
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="?page=user-info">User Information</a>
+         
         </li>
     </ul>
     
@@ -30,51 +36,23 @@
 </nav>
 
 <div class="container">
-	<div class="row">
-		<div class="col-12">
-				<br/>
-			<a href="student_add.php" class="btn btn-success btn-sm"><i class="fa-solid fa-floppy-disk"></i> &nbsp; Add Student</a>
-<br/><br/>
 
-			<table class="table">
-  <thead>
+
+<?php if (isset($_GET['page']) && $_GET['page'] == "user-info") : ?>
+
+  <?php require_once 'index_userinfo.php'; ?>
+
+  <?php else : ?>
+
+    <?php require_once 'index_userlist.php'; ?>
+
    
 
-
-    <tr>
-
-     <th scope="col">Id</th>
-      <th scope="col">Username</th>
-      <th scope="col">Password</th>
-      
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach(User::find_all() as $user ) { ?>
-    
-
-    <tr>
-       <td><?php echo $user->id; ?></td>
-      <th scope="row"><?php echo $user->username; ?></th>
-      <td><?php echo $user->password; ?></td>
-      
-      
-      <td>
-      	<a href="student_edit.php?id=<?php echo $user->id; ?>" class="btn btn-sm btn-info"><i class="fa-solid fa-pen"></i>&nbsp; Edit</a>
-      	<button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> &nbsp; Delete</button>
-      </td>
-    </tr>
+    <?php endif; ?>
 
 
 
-  <?php } ?>
-    
-  </tbody>
-</table>
-		</div>
-	</div>
-</div>
+	
 
  	
 </body>

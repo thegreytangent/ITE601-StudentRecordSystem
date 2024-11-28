@@ -21,18 +21,32 @@
 		<div class="row">
 			<div class="col-2"></div>
 			<div class="col-4">
-				<h2>Create New User Credentials</h2>
-						<form method="POST" action="student_create.php">
+				<h2>Create New User Information</h2>
+						<form method="POST" action="user_info_create.php">
 					
 					<div class="mb-3">
-						<label class="form-label">Username:</label>
-						<input type="text" name="username" class="form-control">
+						<label class="form-label">Select User:</label>
+						<select name="user_id" id="" class="form-control">
+                            <?php foreach (User::find_all() as $user ) : ?>
+                            <option value="<?php echo $user->id; ?>"><?php echo $user->username; ?></option>
+                            <?php endforeach; ?>
+                        </select>
 					</div>
 
 					<div class="mb-3">
-						<label class="form-label">Password:</label>
-						<input type="text" name="password" class="form-control">
+						<label class="form-label">Address:</label>
+						<input type="text" name="addresss" class="form-control">
 					</div>
+                    <div class="mb-3">
+						<label class="form-label">
+                            Contact Number:</label>
+						<input type="text" name="contact_number" class="form-control">
+					</div>
+                    <div class="mb-3">
+						<label class="form-label">Birthdate:</label>
+						<input type="text" name="birthdate" class="form-control">
+					</div>
+
 					<button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
 				</form>
 
